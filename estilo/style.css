@@ -1,0 +1,208 @@
+@charset "UTF-8"; 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merienda:wght@300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face { /*regra usada para instalar fonte baixada*/
+    font-family: 'Android';
+    src: url('../fontes/idroid.otf') format('opentype'); /*.. significa volte uma pasta e apos, entre na pasta fonte, e abra o arquivo idroid.otf*/
+    font-weight: normal;
+}
+
+
+:root { /*pseudo-classe raiz, guarda definiçoes q afetará todo o documento, como as declaraçeos de variáveis*/
+    --cor0: #c5ebd6;/*toda variável começa com --*/
+    --cor1: #86e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e; 
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', sans-serif;
+    --fonte-android: 'android', 'cursive';
+}
+
+* { /*seletor de configurações globais, selecionará todos os elementos html como p, h1, h2 e etc*/
+    margin: 0px; /*retirará os valores de margem q vem por default e atrapalham a personalizaçao*/
+    padding: 0px;
+}
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);   
+}
+
+a.externo::after { /*todo link da classe externo, receberá um icone do emojipedia depois dele*/
+    content: '\1F517';
+
+}
+
+header {
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    min-height: 150px;
+    text-align: center;
+    padding-top: 40px;
+}
+
+header > h1 {
+    color: white;
+    font-family: var(--fonte-destaque);  
+    font-weight: normal; /*tira o padrao negrito das fontes*/
+    font-size: 3em;
+    margin-bottom: 20px;  
+    text-shadow: 2px 2px 0px rgba(27, 27, 27, 0.548);
+}
+
+header > p {
+    color: var(--cor0);
+    font-family: var(--fonte-padrao);
+    font-size: 1em;
+    max-width: 600px; /*max-width no lugar de width, pois evita vazar ao reduzir, quebrando/adaptando o texto adqmente*/ 
+    margin: auto; /*centraliza a box do parágrafo*/
+    margin-bottom: 20px;
+    padding: 0px 10px; /*cria um espaço lateral p o texto nao colar na lateral ao reduzir*/
+    text-shadow: 2px 2px 0px rgba(27, 27, 27, 0.548);
+}
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 0px 7px 7px rgba(32, 32, 32, 0.192);
+}
+nav > a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition-duration: 0.3s; /*duraçao efeito hover*/
+}
+
+nav > a:hover {
+    background-color: var(--cor2);
+    color: var(--cor4);
+
+}
+
+main {
+    min-width: 300px; /*abaixo de 1000px o navegador adapta o conteúdo gerando quebras, até atingir 300px*/
+    max-width: 1000px; /*conteúdo expande até 1000px, apos isso ele permanece estático c esse valor*/
+    background-color: white;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px gray;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+ 
+}
+
+main p {/*Conf. única p todos os p. Sem o ">" indica que os p podem estar em outros níveis dentro de outras divs, indiretamente ligados ao main*/
+    margin: 16px 0px;
+    text-align: justify;
+    text-indent: 30px;
+    font-size: 1em;
+    line-height: 1.8em; /*altura entre linhas*/
+} 
+
+main strong {/*tudo o que tiver na tag strong, em qqr nível dentro do main*/
+    color: var(--cor4);
+    font-weight: bold;    
+}
+
+main a {
+    color: var(--cor5);
+    text-decoration: none;
+    font-weight: bold;
+    background-color: var(--cor0);
+    padding: 2px;
+}
+
+main a:hover {
+    text-decoration: underline;
+    background-color: var(--cor1);
+
+}
+
+main img { /*todas as imagens dentro do main*/
+    width: 100%; /*largura da imagem independente do conteudo será 100% dessa imagem. Assim ela será 100% visível, sem extrapolar zona de vizualizaçao*/
+}
+
+main img.pequena { /*imagem tratada em class, pois terá configurações específicas*/
+    max-width: 300px; /*estabecendo largura max, impede a imagem de perder qualidade ao expandir a tela*/
+    display: block; /*primeiramente, transforma-se a imagem e box level p q ele possa ter dimensao e alinhamento configurado em tamanhos diferentes de 100%  da tela*/
+    margin: auto;
+
+}
+
+main h1 {
+    color:var(--cor5);
+    font-weight: normal; /*tira o padrao negrito das fontes*/
+    font-family: var(--fonte-android);
+    font-size: 1.8em;
+}
+main h2 {
+    font-family: var(--fonte-android);
+    font-weight: normal; /*tira o padrao negrito das fontes*/
+    color: var(--cor4); 
+    font-size: 1.3em;
+    background-image: linear-gradient(to right, var(--cor0), transparent);
+    text-indent: 10px;
+}
+
+div.video {
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px; /*valor negativo para a margem ficar encostada no bloco do main e ultrapassar os 20px de padding definidos antes no main*/
+    padding: 20px;
+    
+    position: relative;
+    padding-bottom: 59%; /*valor definido por teste*/
+}
+
+div.video > iframe {
+    position: absolute; /*para posicionamento absluto usa-se top left right e bottom*/
+    top: 5%; /*espaço de deslocamento da frame do video até a borda da div q o contém*/
+    left: 5%; /*valores definidos por testes*/
+    width: 90%; /*porcentagem em q o video ocupará a largura da área da div q o contém*/
+    height: 90%;
+}
+
+aside {
+    background-color: var(--cor1);
+    padding:  14px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(128, 128, 128, 0.404);
+}
+
+aside > h3 {
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    margin: -14px -14px 0px -14px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+aside > ul {
+    list-style-position: inside;   
+    list-style-type: '\2714\00A0\00A0'; /*Codigo do simbolo retirado do emojipedia, usando so os numeros. 00A0 é o código do espaço*/
+    columns: 2;
+    line-height: 1.5em;
+}
+
+footer {
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+footer a { /*pois o link n esta diretamente dentro do footer, e sim dentro do p. Opção 2: footer > p > a*/
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+}
