@@ -61,9 +61,8 @@ HEADER
     font-size: 1.2em; 
     font-weight:400;      
     max-width: 400px; 
-    margin: auto;
-    margin-bottom: 20px;
-    padding: 0px 10px;    
+    margin: auto;   
+    padding: 0px 10px 20px 0px;    
     text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.318);
 
 /**************************
